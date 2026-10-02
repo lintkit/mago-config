@@ -1,0 +1,15 @@
+{
+    "name": "lintkit/mago-config",
+    "description": "Liquid Light base configuration for Mago",
+    "type": "library",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "carthage-software/mago": "^1.50"
+    }
+}

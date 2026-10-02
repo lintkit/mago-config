@@ -1,0 +1,82 @@
+version = "1"
+
+# Overridden by MAGO_PHP_VERSION, which the composer scripts set from config.platform.php
+php-version = "8.4"
+
+[source]
+paths = ["."]
+includes = ["vendor"]
+excludes = [
+	".*/**",
+	"**/.Build/**",
+	"**/Library/**",
+	"**/node_modules/**",
+	"var/**",
+]
+
+###
+# Formatter
+###
+
+[formatter]
+preset = "psr-12"
+
+# Indentation & line length
+use-tabs = true
+tab-width = 4
+print-width = 120
+
+# Spacing
+space-after-cast-unary-prefix-operators = false
+space-before-arrow-function-parameter-list-parenthesis = true
+space-around-concatenation-binary-operator = true
+# psr-12 preset sets this to true, but PSR-12 requires declare(strict_types=1)
+space-around-assignment-in-declare = false
+
+# Use statements
+sort-uses = "alpha-ascending"
+separate-use-types = true
+expand-use-groups = true
+
+# Layout
+trailing-comma = true
+method-chain-semicolon-on-next-line = true
+null-type-hint = "question"
+empty-line-after-opening-tag = true
+parameter-attribute-on-new-line = false
+
+# Keep line breaks added by hand
+preserve-breaking-parameter-list = true
+preserve-breaking-argument-list = true
+preserve-breaking-conditional-expression = true
+preserve-breaking-member-access-chain = true
+preserve-breaking-array-like = true
+
+###
+# Linter
+###
+
+[linter]
+integrations = ["phpunit"]
+baseline = ".mago/baseline-lint.toml"
+
+# Test classes grow with coverage
+[linter.rules.too-many-methods]
+level = "warning"
+exclude = ["**/Tests/**"]
+
+# Complexity scores are hints, so report them without failing the build
+[linter.rules.cyclomatic-complexity]
+level = "warning"
+
+[linter.rules.kan-defect]
+level = "warning"
+
+###
+# Analyzer
+###
+
+[analyzer]
+baseline = ".mago/baseline-analyze.toml"
+find-unused-parameters = true
+check-missing-override = true

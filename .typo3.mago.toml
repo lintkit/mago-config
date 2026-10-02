@@ -1,0 +1,39 @@
+extends = ".mago.toml"
+
+[source]
+excludes = [
+	# Projects
+	"backup/**",
+	"html/**",
+
+	# TYPO3
+	"config/system/settings.php",
+	"typo3/**",
+]
+
+###
+# Linter
+###
+
+[linter]
+integrations = ["symfony"]
+
+# TYPO3 exception codes are timestamps; keep them searchable as plain integers
+[linter.rules.readable-literal]
+enabled = false
+
+# TYPO3 registers TCA and configuration through $GLOBALS
+[linter.rules.no-global]
+exclude = [
+	"**/Configuration/TCA/**",
+	"**/ext_localconf.php",
+	"**/ext_tables.php",
+	"config/system/*.php",
+]
+
+# Extbase models map every database column to a property with a getter and setter
+[linter.rules.too-many-properties]
+exclude = ["**/Classes/Domain/Model/**"]
+
+[linter.rules.too-many-methods]
+exclude = ["**/Classes/Domain/Model/**"]
