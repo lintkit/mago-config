@@ -1,6 +1,6 @@
 version = "1"
 
-# Overridden by MAGO_PHP_VERSION, which the composer scripts set from config.platform.php
+# Overridden by the MAGO_PHP_VERSION environment variable
 php-version = "8.4"
 
 [source]

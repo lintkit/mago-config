@@ -14,7 +14,7 @@ Add the scripts:
 
 ```json
 "scripts": {
-    "mago": "PLATFORM_PHP=$(composer config platform.php 2>/dev/null) && export MAGO_PHP_VERSION=$PLATFORM_PHP; mago --config vendor/lintkit/mago-config/.mago.toml",
+    "mago": "mago --config vendor/lintkit/mago-config/.mago.toml",
     "mago:analyze": "@mago analyze",
     "mago:dry-run": "@mago:fix --check",
     "mago:fix": "@mago fmt",
@@ -22,7 +22,13 @@ Add the scripts:
 },
 ```
 
-Mago targets PHP 8.4 by default. If the project sets `config.platform.php`, the `mago` script passes that version to Mago instead.
+### PHP version
+
+Mago targets PHP 8.4 by default. If the project sets `config.platform.php`, pass that version to Mago instead:
+
+```json
+"mago": "MAGO_PHP_VERSION=$(composer config platform.php) mago --config vendor/lintkit/mago-config/.mago.toml",
+```
 
 ### TYPO3
 
