@@ -10,6 +10,6 @@
         }
     ],
     "require": {
-        "carthage-software/mago": "^1.50"
+        "carthage-software/mago": "^1.51.1"
     }
 }

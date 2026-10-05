@@ -30,8 +30,6 @@ print-width = 120
 space-after-cast-unary-prefix-operators = false
 space-before-arrow-function-parameter-list-parenthesis = true
 space-around-concatenation-binary-operator = true
-# psr-12 preset sets this to true, but PSR-12 requires declare(strict_types=1)
-space-around-assignment-in-declare = false
 
 # Use statements
 sort-uses = "alpha-ascending"
@@ -71,6 +69,10 @@ level = "warning"
 
 [linter.rules.kan-defect]
 level = "warning"
+
+# Assignments in conditions are easily mistaken for comparisons, e.g. if ($a = 1)
+[linter.rules.no-assign-in-condition]
+level = "error"
 
 ###
 # Analyzer
