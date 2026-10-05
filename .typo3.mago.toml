@@ -37,3 +37,7 @@ exclude = ["**/Classes/Domain/Model/**"]
 
 [linter.rules.too-many-methods]
 exclude = ["**/Classes/Domain/Model/**"]
+
+# ext_emconf.php is read by the TYPO3 extension manager and must not declare strict types
+[linter.rules.strict-types]
+exclude = ["**/ext_emconf.php"]
