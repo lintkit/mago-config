@@ -41,3 +41,17 @@ exclude = ["**/Classes/Domain/Model/**"]
 # ext_emconf.php is read by the TYPO3 extension manager and must not declare strict types
 [linter.rules.strict-types]
 exclude = ["**/ext_emconf.php"]
+
+###
+# Analyzer
+###
+
+# TYPO3 entry-point files start with the `defined('TYPO3') || die();` access guard
+[analyzer]
+ignore = [
+	{ code = "unused-statement", pattern = "binary operation", in = [
+		"**/Configuration/TCA/**",
+		"**/ext_localconf.php",
+		"**/ext_tables.php",
+	] },
+]
