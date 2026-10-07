@@ -9,6 +9,7 @@ excludes = [
 	# TYPO3
 	"config/system/settings.php",
 	"typo3/**",
+	"vendor/typo3/class-alias-loader/res/**",
 ]
 
 ###
